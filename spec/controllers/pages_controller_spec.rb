@@ -7,6 +7,7 @@ describe PagesController do
       get 'home'
       response.should be_success
     end
+  end 
     
     it "should have the right title"
       get 'home'
