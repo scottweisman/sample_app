@@ -108,5 +108,27 @@ end
     it "should have an encrypted password attribute" do 
       @user.should respond_to(:encrypted_password)
     end 
+    
+    it "should set the encrypted password attribute" do 
+      @user.encrypted_password.should_not be_blank
+    end 
+    
+    it "should have a salt" do 
+      @user.should respond_to(:salt)
+    end 
+    
+    describe "has_password? method" do 
+      it "should exist" do 
+        @user.should respond_to(:has_password?)
+    end 
+    
+    it "should return true if the passowrds match" do 
+      @user.has_password?(@attr[:password]).should be_true
+    end 
+    
+    it "should return fals if the passwords don't match" do 
+      @user.has_password?("invalid").should be_false
+    end 
+    end 
   end 
 end 
