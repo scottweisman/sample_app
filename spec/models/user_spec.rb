@@ -192,7 +192,7 @@ end
       [@mp1, @mp2].each do |micropost| 
         lambda do 
           Micropost.find(micropost)
-        end.should rais_error(ActiveRecord::RecordNotFound) 
+        end.should raise_error(ActiveRecord::RecordNotFound) 
       end 
     end 
   end 
