@@ -42,7 +42,7 @@ describe MicropostsController do
     describe "success" do 
       
       before(:each) do 
-        @attr = { :content => "Lorem ipsum dolor" }
+        @attr = { :content => "Lorem ipsum" }
       end 
       
       it "should create a micropost" do 
@@ -91,7 +91,7 @@ describe MicropostsController do
       lambda do 
         delete :destroy, :id => @micropost
         flash[:success].should =~/deleted/i
-        resonse.should redirect_to(root_path)
+        response.should redirect_to(root_path)
       end.should change(Micropost, :count).by(-1)
       end
     end 

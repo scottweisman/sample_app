@@ -191,7 +191,7 @@ end
       @user.destroy
       [@mp1, @mp2].each do |micropost| 
         lambda do 
-          Micropost.find(micropost)
+          Micropost.find(micropost.id)
         end.should raise_error(ActiveRecord::RecordNotFound) 
       end 
     end 
